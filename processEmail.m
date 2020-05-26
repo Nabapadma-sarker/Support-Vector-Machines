@@ -50,6 +50,8 @@ email_contents = regexprep(email_contents, '[$]+', 'dollar');
 
 % Output the email to screen as well
 fprintf('\n==== Processed Email ====\n\n');
+%total vocabList
+m = size(vocabList,1);
 
 % Process file
 l = 0;
@@ -96,9 +98,12 @@ while ~isempty(email_contents)
     % Note: You can use strcmp(str1, str2) to compare two strings (str1 and
     %       str2). It will return 1 only if the two strings are equivalent.
     %
-
-
-
+    
+    for i = 1:m
+      if strcmp(str, vocabList{i}) == 1
+         word_indices = [word_indices ; i];        
+      end
+    end
 
 
 
